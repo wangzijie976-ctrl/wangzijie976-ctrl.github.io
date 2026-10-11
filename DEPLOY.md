@@ -124,10 +124,39 @@ jobs:
 
 ## 上线后的检查清单
 
-- [ ] 打开网址，首屏、动画、深色模式切换是否正常
+- [x] 页面可访问（HTTP 200，已验证）
+- [x] 七个区块内容与简历一致（已验证）
+- [x] 手机号与学号邮箱不在页面上（已验证）
+- [x] `robots.txt` / `sitemap.xml` 可访问（HTTP 200，已验证）
 - [ ] 手机上打开一次（微信里直接点链接），确认没有横向滚动条
 - [ ] `Ctrl+P` 打印预览是否是一份干净的浅色文档
 - [ ] 微信/QQ 里把链接发给自己，确认卡片标题显示正确
+- [ ] 填入公开邮箱（当前仍是占位文字）
+
+## 部署现状（已上线）
+
+| 项目 | 值 |
+| --- | --- |
+| 线上地址 | <https://wangzijie976-ctrl.github.io/> |
+| 代码仓库 | <https://github.com/wangzijie976-ctrl/wangzijie976-ctrl.github.io> |
+| 发布分支 | `main` / `/ (root)`（Deploy from a branch） |
+| 首次部署提交 | `459a0d2` |
+| 索引文件提交 | `95b1c10`（新增 `robots.txt`、`sitemap.xml`） |
+
+站点已允许搜索引擎收录（`robots.txt` 为 `Allow: /` 并指向 `sitemap.xml`）。
+如果以后想让 HR 之外的人搜不到，把 `robots.txt` 改成 `Disallow: /` 再 push 即可。
+
+### 更新流程（已配置好，无需再初始化）
+
+```powershell
+cd D:\spaa\website
+git add .
+git commit -m "update: 修改说明"
+git push
+```
+
+GitHub Pages 会在 push 后约 1 分钟自动重新构建。
+**注意**：构建期间访问新文件可能出现短暂 404，这是正常的，等 1–2 分钟再刷新。
 
 ## 联系方式现状（已脱敏）✅
 
