@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wangzijie976-ctrl.github.io/sitemap.xml
