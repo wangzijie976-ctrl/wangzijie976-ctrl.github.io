@@ -129,7 +129,7 @@
     var el = document.getElementById('typed');
     if (!el) return;
 
-    var words = ['后端开发工程师', '算法竞赛选手', 'AIGC 模型工程', '兰州大学 · 计算机基地班'];
+    var words = ['AI Infra 研究者', '并行与分布式计算', '大模型训练与推理系统', '国防科技大学 PDL 实验室'];
 
     if (prefersReduced) { el.textContent = words[0]; return; }
 
