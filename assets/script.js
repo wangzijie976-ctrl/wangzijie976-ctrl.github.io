@@ -129,7 +129,7 @@
     var el = document.getElementById('typed');
     if (!el) return;
 
-    var words = ['AI Infra 研究者', '并行与分布式计算', '大模型训练与推理系统', '国防科技大学 PDL 实验室'];
+    var words = ['AI Infra 研究者', '并行与分布式计算', '大模型训练与推理系统', '并行与分布处理国防科技重点实验室'];
 
     if (prefersReduced) { el.textContent = words[0]; return; }
 

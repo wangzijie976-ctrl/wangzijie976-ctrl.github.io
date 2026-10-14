@@ -13,3 +13,6 @@ desktop.ini
 *.zip
 node_modules/
 .cache/
+
+# --- 本地预览截图（仅供本地查看，不发布） ---
+.preview/

@@ -26,7 +26,7 @@
    可见性选 **Public**（Pages 免费版要求公开仓库），点 **Create repository**。
 2. 在新仓库页面点 **uploading an existing file**（或直接访问
    `https://github.com/wangzijie976-ctrl/wangzijie976-ctrl.github.io/upload/main`）。
-3. 打开文件夹 `D:\spaa\website`，**全选里面的内容**（`index.html`、`assets` 文件夹、
+3. 打开文件夹 `D:\wangzijie\website`，**全选里面的内容**（`index.html`、`assets` 文件夹、
    `README.md`、`DEPLOY.md`、`.gitignore`），拖进浏览器的上传框。
    - 用 `Ctrl+A` 全选时，资源管理器默认不显示 `.nojekyll` 和 `.gitignore` 这类点开头的文件，
      需要先打开「查看 → 显示 → 隐藏的项目」。
@@ -47,7 +47,7 @@
 
 ```powershell
 # 1. 进入站点目录
-cd D:\spaa\website
+cd D:\wangzijie\website
 
 # 2. 初始化仓库（只需一次）
 git init -b main
@@ -69,7 +69,7 @@ git push -u origin main
 ### 以后更新内容
 
 ```powershell
-cd D:\spaa\website
+cd D:\wangzijie\website
 git add .
 git commit -m "update: 更新项目经历"
 git push
@@ -125,13 +125,16 @@ jobs:
 ## 上线后的检查清单
 
 - [x] 页面可访问（HTTP 200，已验证）
-- [x] 七个区块内容与简历一致（已验证）
+- [x] 区块内容与简历一致（已验证）
 - [x] 手机号与学号邮箱不在页面上（已验证）
 - [x] `robots.txt` / `sitemap.xml` 可访问（HTTP 200，已验证）
 - [ ] 手机上打开一次（微信里直接点链接），确认没有横向滚动条
 - [ ] `Ctrl+P` 打印预览是否是一份干净的浅色文档
 - [ ] 微信/QQ 里把链接发给自己，确认卡片标题显示正确
-- [ ] 填入公开邮箱（当前仍是占位文字）
+- [ ] **填入公开邮箱**（当前仍是橙色占位文字，求职必备）
+- [ ] **放入 `assets/resume.pdf`**，或删掉页面里两处指向它的链接（否则点开 404）
+- [ ] 确认「所在地」是否正确（现按学校填为「湖南 · 长沙」）
+- [ ] 确认「求职意向」的实习时间 / 校招届别 / 城市（现填 2027 暑期实习、2030 届）
 
 ## 部署现状（已上线）
 
@@ -149,7 +152,7 @@ jobs:
 ### 更新流程（已配置好，无需再初始化）
 
 ```powershell
-cd D:\spaa\website
+cd D:\wangzijie\website
 git add .
 git commit -m "update: 修改说明"
 git push
@@ -167,17 +170,16 @@ GitHub Pages 会在 push 后约 1 分钟自动重新构建。
 | 联系我 → 邮箱 | 橙色占位文字「请在此填入你的邮箱」 | 换成你愿意公开的邮箱 |
 | 联系我 → 微信 | 「微信同号，请邮件联系」 | 无需改动 |
 | 联系我 → GitHub | `github.com/wangzijie976-ctrl` | 已确认，无需改动 |
+| 联系我 → 力扣 | `leetcode.cn/u/yanzhilongzhanzhe` | 已确认，无需改动 |
+| 联系我 / 首屏 → 简历 PDF | 指向 `assets/resume.pdf`（**该文件还没放进来**） | 放入 PDF，或删掉这两处链接 |
+| 联系我 → 所在地 | 「湖南 · 长沙」（按学校所在地填写） | 如实际仍在兰州请改回「甘肃 · 兰州」 |
 | 首屏名片 | 「微信同号，请邮件联系」+ 指向联系区块 | 无需改动 |
 
-页面里搜 `TODO` 就能定位到需要你处理的地方（邮箱占位、Gitee 卡片）。
+页面里搜 `TODO` 就能定位到需要你处理的地方（邮箱占位、简历 PDF、所在地、求职意向、
+实习条目、开源/论文占位）。完整清单见 **[README.md](README.md)** 的「待填清单」一节。
 
-> **关于 Gitee 卡片**：页面底部那张 Gitee 卡片指向 `gitee.com/awzj`，这个地址来自你简历里
-> 写的 `https://gitee.com/awzj`，但我**无法验证它是否真的是你的账号**——万一是别人的同名账号，
-> 你的主页就替别人导流了。两个选择：
->
-> - **确认是你的** → 保留不动；
-> - **不确定 / 不是** → 把那张 `<!-- ⚠️ TODO ... Gitee ... -->` 注释和紧跟的 `<a class="contact__card">…</a>`
->   整段删掉即可。想换成你的 Gitee 真实地址，就把两处 `https://gitee.com/awzj` 和文本 `gitee.com/awzj` 一起替换。
+> **关于 Gitee**：现在的联系区**没有** Gitee 卡片（Gitee Pages 已停服，且此前那条 `gitee.com/awzj`
+> 无法确认是否为你本人账号，已移除）。Gitee 仍可作为代码备份仓库使用，但公网页面只走 GitHub Pages。
 
 **换成真实邮箱的方法**：编辑 `index.html`，把
 
