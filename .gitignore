@@ -1,0 +1,18 @@
+# --- 操作系统 / 编辑器杂项 ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+desktop.ini
+
+# --- 编辑器 ---
+.vscode/
+.idea/
+*.swp
+
+# --- 构建产物 / 临时文件 ---
+*.zip
+node_modules/
+.cache/
+
+# --- 本地预览截图（仅供本地查看，不发布） ---
+.preview/

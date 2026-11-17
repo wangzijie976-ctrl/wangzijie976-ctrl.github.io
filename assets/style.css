@@ -1,0 +1,215 @@
+/* ==========================================================================
+   王子杰 · 个人主页 — style.css
+   版式参考学术主页常见布局（左侧信息栏 + 右侧分节正文 + 顶部深色导航条）。
+   纯静态：无 JavaScript、无动画、无外部字体。深色模式跟随系统。
+   ========================================================================== */
+
+:root {
+  --bg:      #ffffff;
+  --fg:      #333a40;
+  --fg-mute: #6b7480;
+  --line:    #e2e5e9;
+  --link:    #0f62c4;
+  --bar:     #1f2429;
+  --bar-fg:  #f2f4f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:      #1a1d21;
+    --fg:      #d3d8de;
+    --fg-mute: #98a1ab;
+    --line:    #333a41;
+    --link:    #79b8ff;
+    --bar:     #0f1215;
+    --bar-fg:  #e6e9ec;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+               "Microsoft YaHei", "Source Han Sans SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+p { margin: 0 0 0.85rem; }
+
+/* ------------------------------ 顶部导航条 ------------------------------ */
+.masthead {
+  background: var(--bar);
+  color: var(--bar-fg);
+}
+.masthead__inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.5rem;
+}
+.brand {
+  color: var(--bar-fg);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.6rem 0;
+}
+.brand:hover { text-decoration: none; opacity: 0.85; }
+
+.nav { display: flex; flex-wrap: wrap; gap: 0.1rem 1.1rem; margin-left: auto; }
+.nav a {
+  color: var(--bar-fg);
+  font-size: 0.92rem;
+  padding: 0.6rem 0;
+  opacity: 0.9;
+}
+.nav a:hover { color: #fff; text-decoration: none; opacity: 1; }
+
+/* ------------------------------ 主体两栏 ------------------------------ */
+.page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+/* 左侧信息栏 */
+.sidebar {
+  flex: 0 0 250px;
+  position: sticky;
+  top: 1.5rem;
+}
+.avatar {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 1rem;
+}
+.sidebar__name {
+  margin: 0 0 0.2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.sidebar__title {
+  margin: 0 0 1rem;
+  color: var(--fg-mute);
+  font-size: 0.98rem;
+}
+.sidebar__meta {
+  margin: 0 0 1.1rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+  color: var(--fg-mute);
+}
+.sidebar__meta li { margin-bottom: 0.35rem; }
+.sidebar__links { display: flex; flex-wrap: wrap; gap: 0.9rem; font-size: 0.92rem; }
+
+/* 右侧正文 */
+.content { flex: 1 1 auto; min-width: 0; }
+
+section { margin-bottom: 2.4rem; }
+
+h2 {
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* 教育条目：机构名 + 右侧时间 */
+.entry { margin-bottom: 1.2rem; }
+.entry__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.2rem 1rem;
+  margin-bottom: 0.15rem;
+}
+.entry__org { font-weight: 600; }
+.entry__date { color: var(--fg-mute); font-size: 0.9rem; white-space: nowrap; }
+.entry__desc { margin: 0; color: var(--fg); font-size: 0.97rem; }
+
+/* 联系方式 */
+.contact { margin: 0; padding: 0; list-style: none; }
+.contact li { margin-bottom: 0.4rem; }
+.contact .k {
+  display: inline-block;
+  min-width: 3.4em;
+  color: var(--fg-mute);
+  font-size: 0.9rem;
+}
+
+/* ------------------------------ 中英切换 ------------------------------ */
+/* 语言由 <html lang> 决定：默认中文；无 JS 时按钮不出现，页面仍完整可读 */
+html:not([lang="en"]) .en { display: none; }
+html[lang="en"] .zh { display: none; }
+
+.langbtn { display: none; }
+html.js .langbtn {
+  display: inline-block;
+  margin-left: 1.2rem;
+  padding: 0.25rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--bar-fg);
+  font: inherit;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+html.js .langbtn:hover { border-color: #fff; }
+
+/* ------------------------------ 页脚 ------------------------------ */
+.footer {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 1.2rem 1.5rem 2.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--fg-mute);
+  font-size: 0.88rem;
+}
+.footer p { margin: 0; }
+
+/* ------------------------------ 窄屏 ------------------------------ */
+@media (max-width: 860px) {
+  .page { flex-direction: column; gap: 1.5rem; padding-top: 1.5rem; }
+  .sidebar { position: static; flex: none; width: 100%; }
+  h2 { font-size: 1.25rem; }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 15px; }
+  .masthead__inner { padding: 0.3rem 1.1rem; }
+  .page { padding: 1.2rem 1.1rem 0.5rem; }
+  .footer { padding: 1rem 1.1rem 2rem; }
+  .entry__date { display: block; }
+}
+
+/* ------------------------------ 打印 ------------------------------ */
+@media print {
+  body { color: #000; background: #fff; }
+  .masthead { display: none; }
+  .page { max-width: none; padding: 0; display: block; }
+  .sidebar { position: static; margin-bottom: 1.5rem; }
+  section { break-inside: avoid; }
+  a { color: #000; }
+}
